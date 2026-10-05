@@ -1,8 +1,89 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <meta http-equiv="refresh" content="0; url=./wwwroot/index.html" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Готический Мор: Владения Тьмы</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <div id="game-container">
+        <!-- Игровое поле -->
+        <div id="board-wrapper">
+            <div id="board-center">
+                <h1 class="gothic-title">ГОТИЧЕСКИЙ МОР</h1>
+                <div class="subtitle">«Передел Проклятого Города»</div>
+
+                <div class="dice-area">
+                    <div class="dice" id="die1">⚀</div>
+                    <div class="dice" id="die2">⚀</div>
+                </div>
+
+                <button class="gothic-btn" id="btn-roll">
+                    Бросить Кости Судьбы
+                </button>
+
+                <div id="turn-indicator">Ход: Чумной Доктор</div>
+            </div>
+        </div>
+
+        <!-- Боковая панель -->
+        <aside id="side-panel">
+            <div class="panel-box">
+                <div class="panel-header">Владыки Города</div>
+                <div class="players-list" id="players-list"></div>
+            </div>
+
+            <div class="panel-box log-box">
+                <div class="panel-header">Летопись Смерти</div>
+                <div class="log-console" id="log-console"></div>
+            </div>
+
+            <div class="panel-box">
+                <button class="gothic-btn btn-sm" id="btn-toggle-sound">
+                    Звук: <span id="sound-status">ВКЛ</span>
+                </button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Модальное окно покупок и улучшений -->
+    <div id="interactive-modal">
+        <h3 id="modal-title">Владение</h3>
+        <p id="modal-desc"></p>
+        <div class="modal-actions">
+            <button class="gothic-btn" id="modal-btn-confirm">Подтвердить</button>
+            <button class="gothic-btn btn-cancel" id="modal-btn-cancel">Отступить</button>
+        </div>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="src/audio.js"></script>
+    <script src="src/config.js"></script>
+    <script src="src/bats.js"></script>
+    <script src="src/game.js"></script>
+    <!-- Оверлей скримера -->
+    <div id="screamer-overlay">
+        <div id="screamer-face">
+            <svg viewBox="0 0 200 200" width="100%" height="100%">
+                <!-- Мрачный лик смерти -->
+                <path d="M 50 80 C 50 20, 150 20, 150 80 C 150 130, 130 180, 100 185 C 70 180, 50 130, 50 80 Z" fill="#050505" stroke="#8b0000" stroke-width="4" />
+                <!-- Глазницы -->
+                <ellipse cx="75" cy="85" rx="16" ry="24" fill="#000" stroke="#e62020" stroke-width="3" />
+                <ellipse cx="125" cy="85" rx="16" ry="24" fill="#000" stroke="#e62020" stroke-width="3" />
+                <circle cx="75" cy="88" r="4" fill="#ff0000" />
+                <circle cx="125" cy="88" r="4" fill="#ff0000" />
+                <!-- Провал носа -->
+                <polygon points="100,105 92,125 108,125" fill="#000" />
+                <!-- Оскал -->
+                <path d="M 70 145 Q 100 130 130 145 Q 100 175 70 145 Z" fill="#110505" stroke="#e62020" stroke-width="2" />
+                <line x1="82" y1="140" x2="82" y2="155" stroke="#dfd7c2" stroke-width="3" />
+                <line x1="94" y1="138" x2="94" y2="157" stroke="#dfd7c2" stroke-width="3" />
+                <line x1="106" y1="138" x2="106" y2="157" stroke="#dfd7c2" stroke-width="3" />
+                <line x1="118" y1="140" x2="118" y2="155" stroke="#dfd7c2" stroke-width="3" />
+            </svg>
+        </div>
+    </div>
 </body>
 </html>
